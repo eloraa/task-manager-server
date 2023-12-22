@@ -1,0 +1,13 @@
+dist
+node_modules
+admin.json
+.env
+/*.log
+yarn-error.log
+error.log
+combined.log
+
+.vercel
+vercel.json
+
+.vercel
