@@ -62,7 +62,6 @@ taskSchema.statics = {
         try {
             products = await this.find({
                 uid: options.uid,
-                email: options.email,
             });
         } catch (error) {
             throw error;

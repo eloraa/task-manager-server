@@ -9,4 +9,9 @@ router
 
     .post(validate(task), controller.add);
 
+router
+    .route("/get/:uid")
+
+    .get(controller.list);
+
 module.exports = router;
