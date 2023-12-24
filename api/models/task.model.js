@@ -24,6 +24,10 @@ const taskSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
+        index: {
+            type: Number,
+            default: 1,
+        },
         status: {
             type: String,
             default: "to-do",
@@ -55,6 +59,7 @@ taskSchema.method({
             "description",
             "priority",
             "status",
+            "index",
             "date",
         ];
 

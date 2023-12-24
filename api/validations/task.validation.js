@@ -8,6 +8,7 @@ module.exports = {
             description: Joi.string().min(1).max(300).required(),
             date: Joi.string().required(),
             priority: Joi.string().valid("low", "moderate", "high"),
+            index: Joi.number().integer(),
             email: Joi.string()
                 .email({ tlds: { allow: false } })
                 .required(),
