@@ -10,7 +10,6 @@ module.exports = {
     env: process.env.NODE_ENV,
     port: process.env.PORT,
     allowedHost: process.env.ALLOWED_HOST,
-    roles: ["admin", "moderator", "normal"],
     mongo: {
         uri:
             process.env.NODE_ENV === "test"

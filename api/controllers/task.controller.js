@@ -23,3 +23,29 @@ exports.add = async (req, res, next) => {
         next(error);
     }
 };
+
+exports.update = async (req, res, next) => {
+    try {
+        const _res = await Task.updateOne({ _id: req.params.id }, req.body);
+        if (_res.modifiedCount) {
+            return res.json({
+                success: true,
+            });
+        }
+    } catch (error) {
+        next(error);
+    }
+};
+
+exports.delete = async (req, res, next) => {
+    try {
+        const _res = await Task.deleteOne({ _id: req.params.id });
+        if (_res.deletedCount) {
+            return res.json({
+                success: true,
+            });
+        }
+    } catch (error) {
+        next(error);
+    }
+};

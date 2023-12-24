@@ -24,6 +24,10 @@ const taskSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
+        status: {
+            type: String,
+            default: "to-do",
+        },
         email: {
             type: String,
             match: /^\S+@\S+\.\S+$/,
@@ -45,7 +49,14 @@ const taskSchema = new mongoose.Schema(
 taskSchema.method({
     transform() {
         const transformed = {};
-        const fields = ["id", "title", "description", "priority", "date"];
+        const fields = [
+            "id",
+            "title",
+            "description",
+            "priority",
+            "status",
+            "date",
+        ];
 
         fields.forEach((field) => {
             transformed[field] = this[field];
@@ -57,17 +68,17 @@ taskSchema.method({
 
 taskSchema.statics = {
     async get(options) {
-        let products;
+        let tasks;
 
         try {
-            products = await this.find({
+            tasks = await this.find({
                 uid: options.uid,
             });
         } catch (error) {
             throw error;
         }
-        if (products) {
-            return products;
+        if (tasks) {
+            return tasks;
         }
 
         throw new APIError({

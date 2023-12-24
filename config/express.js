@@ -44,7 +44,6 @@ app.use(
     })
 );
 
-
 // mount api v1 routes
 app.use("/v1", routes);
 

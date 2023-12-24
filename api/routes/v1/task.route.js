@@ -14,4 +14,14 @@ router
 
     .get(controller.list);
 
+router
+    .route("/update/:id")
+
+    .patch(controller.update);
+
+router
+    .route("/delete/:id")
+
+    .delete(controller.delete);
+
 module.exports = router;
