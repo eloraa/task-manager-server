@@ -73,7 +73,7 @@ taskSchema.statics = {
         try {
             tasks = await this.find({
                 uid: options.uid,
-            });
+            }).sort({ updatedAt: -1 });
         } catch (error) {
             throw error;
         }
