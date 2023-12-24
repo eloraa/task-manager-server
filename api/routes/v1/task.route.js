@@ -1,7 +1,7 @@
 const express = require("express");
 const controller = require("../../controllers/task.controller");
 const { validate } = require("express-validation/lib");
-const { task } = require("../../validations/task.validation");
+const { task, update } = require("../../validations/task.validation");
 const router = express.Router();
 
 router
@@ -17,7 +17,7 @@ router
 router
     .route("/update/:id")
 
-    .patch(controller.update);
+    .patch(validate(update), controller.update);
 
 router
     .route("/delete/:id")
