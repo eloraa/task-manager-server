@@ -20,6 +20,7 @@ module.exports = {
             title: Joi.string().min(1).max(100),
             description: Joi.string().min(1).max(300),
             date: Joi.string(),
+            status: Joi.string().valid("To-do", "Ongoing", "Completed"),
             priority: Joi.string().valid("low", "moderate", "high"),
             index: Joi.number().integer(),
         }),
